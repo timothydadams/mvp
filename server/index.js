@@ -11,13 +11,13 @@ app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
 app.use(express.static('public'));
 
-cron.schedule('* * * * *', () => {
-  axios.get('https://jobs.github.com/positions.json?description=software&location=seattle')
-    .then(results => {
-      results.data.forEach(job => db.addJob(job));
-    })
-    .catch(err => console.log(err));
-});
+// cron.schedule('* * * * *', () => {
+//   axios.get('https://jobs.github.com/positions.json?description=software&location=seattle')
+//     .then(results => {
+//       results.data.forEach(job => db.addJob(job));
+//     })
+//     .catch(err => console.log(err));
+// });
 
 // ENDPOINTS
 app.get('/jobs', (req, res) => {
