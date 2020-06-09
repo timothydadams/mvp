@@ -35,7 +35,7 @@ const addJob = (details) => {
   });
 };
 
-//
+// find all jobs
 const findAll = (cb) => {
   Job.find({}).exec((err, results) => {
     if (err) {
@@ -46,17 +46,21 @@ const findAll = (cb) => {
   });
 };
 
+// search most likely fields by keyword
+const search = (keyword, cb) => {
+  console.log(keyword);
 
-// search Jobs (pass an object with field and value properties)
-const search = ({field, value}, cb) => {
-  Review.find({ field: value }).exec((err, results) => {
+  const query = { $or: [{ position: { $regex: `${keyword}`, $options: 'i' } }, { company: { $regex: `${keyword}`, $options: 'i' } }, { location: { $regex: `${keyword}`, $options: 'i' } }, { description: { $regex: `${keyword}`, $options: 'i' } }] };
+
+  Job.find(query, (err, results) => {
     if (err) {
-      cb(err);
+      console.log(err);
+      return;
     }
     cb(null, results);
   });
 };
 
 module.exports = {
-  addJob, findAll,
+  addJob, findAll, search,
 };
