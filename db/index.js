@@ -48,8 +48,6 @@ const findAll = (cb) => {
 
 // search most likely fields by keyword
 const search = (keyword, cb) => {
-  console.log(keyword);
-
   const query = { $or: [{ position: { $regex: `${keyword}`, $options: 'i' } }, { company: { $regex: `${keyword}`, $options: 'i' } }, { location: { $regex: `${keyword}`, $options: 'i' } }, { description: { $regex: `${keyword}`, $options: 'i' } }] };
 
   Job.find(query, (err, results) => {
