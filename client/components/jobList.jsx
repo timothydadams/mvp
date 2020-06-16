@@ -47,7 +47,7 @@ class JobList extends React.Component {
   render() {
     const { jobs } = this.state;
     return (
-      <div>
+      <div style={{ width: '75%' }}>
         { jobs ? (
           <div>
             <TextField style={{padding: 24}}
@@ -56,13 +56,13 @@ class JobList extends React.Component {
               margin="normal"
               onChange={this.handleChange}
             />
-            <Grid container spacing={24} style={{ padding: 24 }}>
+            {/* <Grid container spacing={24} style={{ padding: 24 }}> */}
               { jobs.map((job) => (
-                <Grid item xs={12} sm={6} lg={4} xl={3}>
+                // <Grid item xs={12} sm={6} lg={4} xl={3}>
                   <Job details={job} />
-                </Grid>
+                //</Grid>
               ))}
-            </Grid>
+            {/* </Grid> */}
           </div>
         ) : 'No jobs found'}
       </div>
