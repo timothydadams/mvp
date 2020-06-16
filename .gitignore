@@ -1,5 +1,6 @@
 ### node etc ###
-public/bundle.jscoverage
+public/bundle.js
+coverage
 keys.js
 
 # Logs
