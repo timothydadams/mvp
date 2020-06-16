@@ -2,13 +2,21 @@
 
 This project uses React + Material UI + Express to compose a dashboard service that aims to help individuals track and monitor their journey to employment.
 
+![image](https://user-images.githubusercontent.com/2312703/84735031-5289ce80-af57-11ea-998d-8e5e963e58b5.png)
 
+## Next Steps
+- Refine jobs data model to add timestamps for various user actions (applied, interviews, offer extended) to be able to track metrics
+- Develop metrics dashboard
+- Implement oAuth (google + github)
+- Obtain access to various job board APIs
+- Implement jobs stream from API sources (allow user to search by location parameters, position, description)
+- Users should be able to see jobs stream, and add them to their dashboard
 
 
 ## System Requirements
 
 1. Node (12.16.1)
-2. MySQL (5.7)
+2. MongoDB
 
 ## Getting Started
 
@@ -18,29 +26,15 @@ These instructions will get you a copy of the project up and running on your loc
 ### Installing
 
 ```sh
-git clone https://github.com/Gimli-FEC/gamestart-product-overview/
-cd gamestart-product-overview
+git clone https://github.com/timothydadams/mvp/
+cd mvp
 ```
 
-Start the mysql server on your computer, then execute the following commands in the terminal.
+Start the mongoDB server on your computer, then execute the following commands in the terminal.
 
 ```sh
 npm install
-mysql -u root < db/dbSchema.sql
-npm run seed
-npm run test
-npm run production
-npm run server-dev
-```
-In a browser window, navigate to localhost:3000/?id=NUM
-
-and replace NUM with a number from 1 to 100.
-
-To start the development node server:
-```sh
-npm run server-dev
-```
-To start React with webpack:
-```sh
 npm run react-dev
+npm start
 ```
+In a browser window, navigate to localhost:3500
